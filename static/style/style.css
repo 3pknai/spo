@@ -1,0 +1,113 @@
+/*
+Стили для первого navbar
+*/
+svg {
+    margin-right: 5px;
+    display: inline-flex;
+}
+
+.vr {
+    color: aliceblue;
+    margin: 5px;
+}
+
+.container-fluid a.navbar-brand {
+    color: white;
+}
+.container-fluid a.navbar-brand:hover {
+    color: pink;
+}
+
+/*
+Стили для второго navbar
+*/
+.logo img {
+    width: 100px;
+}
+
+.container a.navbar-brand {
+    color: black;
+    text-decoration: none;
+}
+.container a.navbar-brand:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+
+/*
+Стили для блока контента
+*/
+.promo-banner {
+    background-image: url("https://kdl.ru/templates/build/images/landings/covid/banner-covid.png");
+    background-size: 110% auto;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.statement {
+    background-color: pink;
+    align-items: center;
+}
+
+.card-popular img {
+    width: 100px;
+}
+
+.card-popular {
+    background-color: pink!important;
+    margin-top: 10px!important;
+    border-radius: 10px;
+}
+
+.card-popular a {
+    text-decoration: none;
+    color: #c7006d;
+}
+
+.block-info{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.nav-info a.nav-info {
+    color: black;
+}
+.nav-info a:hover {
+    color: #c7006d;
+}
+
+img.img-info {
+    width: 70px;
+}
+
+.block-price{
+    border: 1px solid black !important;
+    border-radius: 10px;
+}
+
+img.why-us{
+    width: 250px;
+    margin-top: 10px;
+    align-self: center;
+}
+
+.why-us-block .card-title {
+    color: #c7006d;
+    text-align: center;
+    font-weight: bold;
+}
+
+.why-us-block .card-text {
+    text-align: center;
+}
+
+.why-us-block .card {
+    border: 0px;
+}
+
+.footer {
+    background-color: rgb(250, 77, 178);
+}

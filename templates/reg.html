@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коронавирус COVID-19 - Информация и статистика</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='style/style.css')}}>
+    <link rel=”icon” href={{ url_for('static', filename='img/favicon.ico')}}>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+        <div class="container-fluid d-flex justify-content-center">
+            <a class="navbar-brand" aria-current="page" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+              </svg>Волгоград</a>
+            <a class="navbar-brand" aria-current="page" href="/">8 8442 59 95 00</a>
+            <div class="vr"></div>
+            <a class="navbar-brand" aria-current="page" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.3 1.3 0 0 0-.37.265.3.3 0 0 0-.057.09V14l.002.008.016.033a.6.6 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.6.6 0 0 0 .146-.15l.015-.033L12 14v-.004a.3.3 0 0 0-.057-.09 1.3 1.3 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465s-2.462-.172-3.34-.465c-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411"/>
+              </svg>Адреса</a>
+            <div class="vr"></div>
+            <a class="navbar-brand" aria-current="page" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
+                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+                <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8m0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5"/>
+              </svg>Результаты</a>
+            <div class="vr"></div>
+            <a class="navbar-brand" aria-current="page" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+              </svg>Корзина</a>
+            <div class="vr"></div>
+            {% if name %}
+            <form action="/" method="POST">
+                <button type="submit" class="btn btn-dark">Выйти</button>
+            </form>
+            <a class="navbar-brand" aria-current="page" href="/home"> {{ name }} </a>
+            {% else %}
+            <a class="navbar-brand" type="submit" aria-current="page" href="/home"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>Войти</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid d-flex justify-content-around">
+            <div class="logo d-flex">
+                <img src={{ url_for('static', filename="img/logo.svg")}} alt="">
+            </div>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Поиск по анализам" aria-label="Поиск по анализам">
+                <button class="btn btn-outline-success" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+                </button>
+            </form>
+            <div class="d-flex">
+                <a class="btn btn-outline-success" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-body">
+            <ul class="list-group">
+                <a class="navbar-brand" aria-current="page" href="/"><li class="list-group-item">Пациентам</li></a>
+                <a class="navbar-brand" aria-current="page" href="/"><li class="list-group-item">Популярные комплексы и услуги</li></a>
+                <a class="navbar-brand" aria-current="page" href="/"><li class="list-group-item">Связаться с нами</li></a>
+                <a class="navbar-brand" aria-current="page" href="/"><li class="list-group-item">Врачам</li></a>
+                <a class="navbar-brand" aria-current="page" href="/"><li class="list-group-item">О нас</li></a>
+                <a class="navbar-brand" aria-current="page" href="/"><li class="list-group-item">Организациям</li></a>
+            </ul>
+        </div>
+        <figcaption class="blockquote-footer">
+            © 2003-2024
+            Клинико-диагностические лаборатории
+        </figcaption>
+    </div>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container d-flex justify-content-center">
+            <a class="navbar-brand" aria-current="page" href="/">ВЫЕЗД НА ДОМ</a>
+            <a class="navbar-brand" aria-current="page" href="/">АНАЛИЗЫ</a>
+            <a class="navbar-brand" aria-current="page" href="/">АКЦИИ</a>
+            <a class="navbar-brand" aria-current="page" href="/">СВЯЗАТЬСЯ С НАМИ</a>
+            <a class="navbar-brand" aria-current="page" href="/">TELEGRAM KDL</a>
+        </div>
+    </nav>
+
+    <hr class="border border-danger border-2 opacity-50">
+
+
+    <div class="navbar navbar-light bg-light justify-content-center">
+        <div class="d-flex flex-column">
+            <div>
+                <h1>Регистрация</h1>
+                {% if warning_password %}
+                <div class="bg-warning text-dark">
+                    Пароль должен удовлетворять следующим критериям:<br>
+                    1) длина - не менее 6 символов;<br>
+                    2) обязательно содержит большие латинские буквы;<br>
+                    3) обязательно содержит маленькие латинские буквы;<br>
+                    4) обязательно содержит специальные символы;<br>
+                    5) обязательно содержит цифры;<br>
+                    6) не содержит русских букв.
+                </div>
+                {% endif %}
+                {% if user_already %}
+                <div class="bg-warning text-dark">
+                    Пользователь с таким логином уже зарегистрирован в системе!
+                </div>
+                {% endif %}
+            </div>
+            <div>
+                <form action="/reg" method="POST">
+                    <label for="fullname">ФИО:</label>
+                    <input class="form-control" type="text" name="fullname" id="fullname" value="{{ fullname }}" required>
+                    <br>
+                    <label for="username">Логин:</label>
+                    <input class="form-control" type="text" name="username" id="username" value="{{ username }}" required>
+                    <br>
+                    <label for="password">Пароль:</label>
+                    <input class="form-control" type="password" name="password" id="password" required>
+                    <br>
+                    <label for="databirth">Дата рождения:</label>
+                    <input class="form-control" type="date" id="databirth" name="databirth" value="{{ databirth }}" required>
+                    <br>
+                    <label for="address">Адрес:</label>
+                    <input class="form-control" type="text" name="address" id="address" value="{{ address }}">
+                    <br>
+                    <label for="gender">Пол:</label>
+                    <select class="form-control" id="gender" name="gender" value="{{ gender }}">
+                        <option value=None>---</option>
+                        <option value=Male>Мужской</option>
+                        <option value=Female>Женский</option>
+                    </select>
+                    <br>
+                    <label for="interes">Интересы:</label>
+                    <input class="form-control" type="text" name="interes" id="interes" value="{{ interes }}">
+                    <br>
+                    <label for="vk">Профиль в ВК:</label>
+                    <input class="form-control" type="text" name="vk" id="vk" value="{{ vk }}">
+                    <br>
+                    <label for="blood">Группа крови:</label>
+                    <select class="form-control" id="blood" name="blood" value="{{ blood }}">
+                        <option value=None>---</option>
+                        <option value=0>0</option>
+                        <option value=A>A</option>
+                        <option value=B>B</option>
+                        <option value=AB>AB</option>
+                    </select>
+                    <br>
+                    <label for="rz">Резус:</label>
+                    <select class="form-control" id="rz" name="rz" value="{{ rz }}">
+                        <option value=None>---</option>
+                        <option value=+>+</option>
+                        <option value=->-</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Зарегистрироваться">
+                </form>
+            </div>
+            <div>
+                <a class="navbar-brand" aria-current="page" href="/auth">Авторизация</a>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+
+    <footer class="footer text-light py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Логотип сайта -->
+            <div class="logo">
+                <img src={{ url_for('static', filename="img/logo.svg")}} alt="Логотип сайта" style="max-height: 50px;">
+            </div>
+    
+            <div class="social-links">
+                <a href="/" class="text-light" title="VK">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
+                        <path fill="#1976d2" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"></path><path fill="#fff" d="M35.937,18.041c0.046-0.151,0.068-0.291,0.062-0.416C35.984,17.263,35.735,17,35.149,17h-2.618 c-0.661,0-0.966,0.4-1.144,0.801c0,0-1.632,3.359-3.513,5.574c-0.61,0.641-0.92,0.625-1.25,0.625C26.447,24,26,23.786,26,23.199 v-5.185C26,17.32,25.827,17,25.268,17h-4.649C20.212,17,20,17.32,20,17.641c0,0.667,0.898,0.827,1,2.696v3.623 C21,24.84,20.847,25,20.517,25c-0.89,0-2.642-3-3.815-6.932C16.448,17.294,16.194,17,15.533,17h-2.643 C12.127,17,12,17.374,12,17.774c0,0.721,0.6,4.619,3.875,9.101C18.25,30.125,21.379,32,24.149,32c1.678,0,1.85-0.427,1.85-1.094 v-2.972C26,27.133,26.183,27,26.717,27c0.381,0,1.158,0.25,2.658,2c1.73,2.018,2.044,3,3.036,3h2.618 c0.608,0,0.957-0.255,0.971-0.75c0.003-0.126-0.015-0.267-0.056-0.424c-0.194-0.576-1.084-1.984-2.194-3.326 c-0.615-0.743-1.222-1.479-1.501-1.879C32.062,25.36,31.991,25.176,32,25c0.009-0.185,0.105-0.361,0.249-0.607 C32.223,24.393,35.607,19.642,35.937,18.041z"></path>
+                        </svg>
+                </a>
+                <a href="/" class="text-light" title="TELEGRAM">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
+                        <path fill="#29b6f6" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"></path><path fill="#fff" d="M33.95,15l-3.746,19.126c0,0-0.161,0.874-1.245,0.874c-0.576,0-0.873-0.274-0.873-0.274l-8.114-6.733 l-3.97-2.001l-5.095-1.355c0,0-0.907-0.262-0.907-1.012c0-0.625,0.933-0.923,0.933-0.923l21.316-8.468 c-0.001-0.001,0.651-0.235,1.126-0.234C33.667,14,34,14.125,34,14.5C34,14.75,33.95,15,33.95,15z"></path><path fill="#b0bec5" d="M23,30.505l-3.426,3.374c0,0-0.149,0.115-0.348,0.12c-0.069,0.002-0.143-0.009-0.219-0.043 l0.964-5.965L23,30.505z"></path><path fill="#cfd8dc" d="M29.897,18.196c-0.169-0.22-0.481-0.26-0.701-0.093L16,26c0,0,2.106,5.892,2.427,6.912 c0.322,1.021,0.58,1.045,0.58,1.045l0.964-5.965l9.832-9.096C30.023,18.729,30.064,18.416,29.897,18.196z"></path>
+                        </svg>
+                </a>
+
+
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>

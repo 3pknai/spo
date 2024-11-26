@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Станица не найдена</title>
+  <link rel="stylesheet" href={{ url_for('static', filename='style/404.css') }}>
+</head>
+<body>
+  <div class="error-page">
+    <img src="{{ url_for('static', filename='img/error404.jpg') }}" alt="">
+    <h1>404</h1>
+    <h2>Страница не найдена</h2>
+    <p>К сожалению, страница, которую вы ищете, не существует.</p>
+    <a href="/">Вернуться на главную</a>
+  </div>
+</body>
+</html>
