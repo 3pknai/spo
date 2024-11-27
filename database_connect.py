@@ -266,7 +266,7 @@ def user_have_analyze(login, id):
             query = f"""SELECT * FROM analyzes as a
                         JOIN patients as p ON a.patients_id = p.id
                         JOIN tests as t ON a.tests_id = t.id
-                        WHERE p.login = "{login}" and t.id = {id};"""
+                        WHERE p.login = "{login}" and a.id = {id};"""
             print(query)
             cursor.execute(query)
             row = cursor.fetchall()
